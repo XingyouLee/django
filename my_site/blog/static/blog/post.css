@@ -16,7 +16,7 @@
 .post a:active {
   transform: scale(1.1);
   background-color: #390281;
-  color: rgb(0, 0, 0);
+  color: white;
 }
 
 .post img {

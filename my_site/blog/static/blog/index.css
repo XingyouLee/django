@@ -58,21 +58,6 @@
     flex: 1;
 }
 
-#latest-posts img {
-    width: 7rem;
-    height: 7rem;
-    object-fit: cover;
-    /* 确保图片不会变形 */
-}
-
-#latest-posts .post a {
-    height: 22rem;
-    transform-origin: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-    background-color: white;
-}
-
 #about {
     text-align: center;
     padding: 3rem;
