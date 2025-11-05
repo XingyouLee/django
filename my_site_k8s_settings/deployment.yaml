@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-django-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-django-app
+  template:
+    metadata:
+      labels:
+        app: my-django-app
+    spec:
+      containers:
+      - name: django
+        image: xingyoulee/my_django_app:amd-latest
+        ports:
+        - containerPort: 8000
+        command: ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+        env:
+        - name: DJANGO_SETTINGS_MODULE
+          value: "my_site.settings"
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
