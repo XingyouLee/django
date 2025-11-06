@@ -15,3 +15,9 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . /app/
 RUN python manage.py collectstatic --noinput
+
+# ✅ Cloud Run 会注入 PORT 环境变量（默认 8080）
+ENV PORT=8080
+
+# ✅ 使用 Gunicorn（生产环境）
+CMD exec gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 60 my_site.wsgi:application
